@@ -1,0 +1,98 @@
+/* Landing Page Styles */
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    background-attachment: fixed;
+}
+
+.container{
+    padding: 30px;
+    text-align: center;
+}
+
+h1{
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+p{
+    font-size: 18px;
+    opacity: 0.9;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Cards */
+.cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card{
+    background: rgba(255,255,255,0.12);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.card h3{
+    margin-top: 10px;
+}
+
+/* Buttons */
+.loginBtn{
+    margin-top: 20px;
+    padding: 12px 25px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--gold-1), var(--gold-2));
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+}
+
+/* Section fonts */
+.students{
+    font-family: 'Poppins', sans-serif;
+}
+.instructors{
+    font-family: 'Montserrat', sans-serif;
+}
+.admins{
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Icons color (Gold shades) */
+.section-title i {
+    color: var(--gold-2);
+}
+.container p i {
+    color: var(--gold-1);
+}
+
+/* Dark mode for landing */
+.dark body{
+    background: linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+}
+
+.dark .card{
+    background: rgba(15,23,42,0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.dark .loginBtn{
+    background: linear-gradient(135deg, var(--gold-2), var(--gold-1));
+}
+
+/* Dark mode icon colors */
+.dark .section-title i {
+    color: var(--gold-1);
+}
+.dark .container p i {
+    color: #fde68a;
+}
