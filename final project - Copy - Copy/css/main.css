@@ -1,0 +1,81 @@
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Segoe UI, Arial;
+    background:var(--bg);
+    color:var(--text);
+}
+
+.nav{
+    background:var(--main);
+    color:#fff; padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:none;
+    background:var(--main);
+    color:#fff;
+    cursor:pointer;
+    border-radius:5px;
+    font-size:16px;
+}
+
+
+.login{ 
+    width:320px;
+    margin:120px auto;
+    background:var(--card);
+    padding:30px;
+    border-radius:10px;
+    backdrop-filter: blur(12px);
+}
+
+.dark .login{ 
+    background: rgba(30,41,59,0.85);
+}
+
+input,select{ 
+    width:100%;
+    padding:10px; 
+    margin:10px 0;
+}
+
+.container{ 
+    padding:30px; 
+}
+
+.cards{ 
+    display:grid; 
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); 
+    gap:20px; 
+}
+
+.card{ 
+    background:var(--card); 
+    padding:20px; 
+    border-radius:10px; 
+}
+
+.hidden{
+    display:none;
+}
+
+.progress{ 
+    background:#cbd5f5; 
+    height:8px; border-radius:5px; 
+    overflow:hidden; 
+}
+
+.progress div{ 
+    background:var(--main); 
+    height:100%; 
+}
