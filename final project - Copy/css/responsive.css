@@ -1,0 +1,75 @@
+/* =================== RESPONSIVE STYLES =================== */
+@media (max-width: 1024px) {
+    .container, .login {
+        padding: 25px;
+    }
+    h1 {
+        font-size: 34px;
+    }
+    .section-title {
+        font-size: 28px;
+    }
+    p {
+        font-size: 17px;
+    }
+    button, .loginBtn, .backBtn {
+        padding: 12px 25px;
+        font-size: 15px;
+    }
+    .cards {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+    }
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .nav button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container, .login {
+        padding: 20px;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    .section-title {
+        font-size: 24px;
+    }
+    p {
+        font-size: 16px;
+    }
+    button, .loginBtn, .backBtn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    .cards {
+        grid-template-columns: 1fr; /* كل كارت ياخد صف كامل */
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+    .section-title {
+        font-size: 20px;
+    }
+    p {
+        font-size: 14px;
+    }
+    .login {
+        width: 90%;
+        margin: 60px auto;
+        padding: 18px;
+    }
+    button, .loginBtn, .backBtn {
+        padding: 8px 18px;
+        font-size: 13px;
+    }
+}

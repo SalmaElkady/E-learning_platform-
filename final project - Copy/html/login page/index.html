@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="../../css/variables.css">
+<link rel="stylesheet" href="../../css/main.css">
+<link rel="stylesheet" href="../../css/animations.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="nav" id="navbar">
+    <div class="nav-buttons">
+        <button onclick="toggleTheme()" id="themeIcon">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </div>
+    <b class="nav-title">E-Learning Platform</b>
+</div>
+
+<!-- Login Box -->
+<div class="login">
+    <h2>Login</h2>
+    <input id="name" placeholder="Full Name">
+    <input id="email" type="email" placeholder="Email">
+    <select id="role">
+        <option value="">Select Role</option>
+        <option value="student">Student</option>
+        <option value="instructor">Instructor</option>
+        <option value="admin">Admin</option>
+    </select>
+    <button onclick="login()">Login</button>
+    <button class="backBtn" onclick="goToLanding()">Back to Landing</button>
+</div>
+
+<script src="../../js/data.js"></script>
+<script src="../../js/auth.js"></script>
+
+<script>
+// Toggle Dark / Light Theme
+function toggleTheme(){
+    document.body.classList.toggle("dark");
+    document.getElementById("navbar").classList.toggle("dark");
+
+    const icon = document.getElementById("themeIcon").firstElementChild;
+    const isDark = document.body.classList.contains("dark");
+
+    icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+    localStorage.setItem("dark", isDark);
+}
+
+// Apply theme on load
+document.addEventListener("DOMContentLoaded", () => {
+    if(localStorage.getItem("dark") === "true"){
+        document.body.classList.add("dark");
+        document.getElementById("navbar").classList.add("dark");
+        document.getElementById("themeIcon").firstElementChild.className =
+            "fa-solid fa-sun";
+    }
+});
+
+// Go to Landing Page
+function goToLanding(){
+    window.location.href = "../../index.html";
+}
+</script>
+
+</body>
+</html>

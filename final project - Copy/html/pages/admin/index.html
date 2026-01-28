@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../css/variables.css">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../../css/animations.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="nav" id="navbar">
+    <div class="nav-buttons">
+        <button onclick="toggleTheme()" id="themeIcon">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <b class="nav-title">Admin Dashboard</b>
+</div>
+
+<!-- Attendance Cards -->
+<div class="container">
+    <h3>Instructor Attendance</h3>
+    <div class="cards" id="adminInstructors"></div>
+
+    <h3>Student Attendance</h3>
+    <div class="cards" id="adminStudents"></div>
+</div>
+
+<script src="../../../js/data.js"></script>
+<script src="../../../js/admin.js"></script>
+<script src="../../../js/auth.js"></script>
+<script src="../../../js/animations.js"></script>
+
+<script>
+// Toggle Dark / Light Theme
+function toggleTheme(){
+    document.body.classList.toggle("dark");
+    document.getElementById("navbar").classList.toggle("dark");
+
+    const icon = document.getElementById("themeIcon").firstElementChild;
+    const isDark = document.body.classList.contains("dark");
+
+    icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+    localStorage.setItem("dark", isDark);
+}
+
+// Apply theme on load
+window.onload = () => {
+    if(localStorage.getItem("dark") === "true"){
+        document.body.classList.add("dark");
+        document.getElementById("navbar").classList.add("dark");
+        document.getElementById("themeIcon").firstElementChild.className =
+            "fa-solid fa-sun";
+    }
+
+    // Only allow admin
+    const role = localStorage.getItem("role");
+    if(role !== "admin"){
+        window.location.href = "../../login page/index.html";
+    }
+
+    loadAttendance();
+};
+
+// Load attendance
+function loadAttendance(){
+    const insBox = document.getElementById("adminInstructors");
+    const stuBox = document.getElementById("adminStudents");
+    insBox.innerHTML = "";
+    stuBox.innerHTML = "";
+
+    attendance.instructors.forEach(i => {
+        insBox.innerHTML += `
+        <div class="card">
+            ${i.name}<br>
+            Status: <b style="color:${i.absent?'red':'green'}">
+            ${i.absent?'Absent':'Present'}</b>
+        </div>
+        `;
+    });
+
+    attendance.students.forEach(s => {
+        stuBox.innerHTML += `
+        <div class="card">
+            ${s.name}<br>
+            Status: <b style="color:${s.absent?'red':'green'}">
+            ${s.absent?'Absent':'Present'}</b>
+        </div>
+        `;
+    });
+}
+
+// Logout
+function logout(){
+    localStorage.removeItem("role");
+    localStorage.removeItem("name");
+    window.location.replace("../../login page/index.html");
+}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instructor Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../css/variables.css">
+    <link rel="stylesheet" href="../../../css/main.css">
+    <link rel="stylesheet" href="../../../css/animations.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="nav" id="navbar">
+    <div class="nav-buttons">
+        <button onclick="toggleTheme()" id="themeIcon">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <b class="nav-title">Instructor Dashboard</b>
+</div>
+
+<!-- Container -->
+<div class="container">
+    <div class="card">My Courses: <b>2</b></div>
+    <div class="card">Students Enrolled: <b>60</b></div>
+    <div class="card">Upload New Lesson</div>
+    <div class="card"><b>Attendance rate first course 50/60</b></div>
+    <div class="card"><b>Attendance rate second course 60/60</b></div>
+</div>
+
+<!-- JS -->
+<script src="../../../js/data.js"></script>
+<script src="../../../js/instructor.js"></script>
+<script src="../../../js/auth.js"></script>
+<script src="../../../js/animations.js"></script>
+<script>
+function toggleTheme(){
+    document.body.classList.toggle("dark");
+    document.getElementById("navbar").classList.toggle("dark");
+
+    const icon = document.getElementById("themeIcon").firstElementChild;
+    const isDark = document.body.classList.contains("dark");
+
+    icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+
+    localStorage.setItem("dark", isDark);
+}
+
+// Apply Dark / Light theme on page load
+window.onload = () => {
+    if(localStorage.getItem("dark") === "true"){
+        document.body.classList.add("dark");
+        document.getElementById("navbar").classList.add("dark");
+        document.getElementById("themeIcon").firstElementChild.className =
+            "fa-solid fa-sun";
+    }
+};
+</script>
+</body>
+</html>

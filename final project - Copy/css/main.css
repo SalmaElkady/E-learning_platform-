@@ -1,0 +1,147 @@
+/* ================== GLOBAL ================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* ================== NAVBAR ================== */
+.nav {
+    background: var(--main);
+    color: #fff;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.nav.dark {
+    background: var(--blue-4);
+}
+
+/* الشمال */
+.nav-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+/* اليمين */
+.nav-title {
+    margin-left: auto;   /* 👈 يخلي العنوان يمين */
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* أيقونات */
+.nav button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* ================== CONTAINERS ================== */
+.container {
+    padding: 30px;
+}
+
+/* ================== HEADINGS ================== */
+h1 {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+p {
+    font-size: 17px;
+    color: var(--subtitle);
+}
+
+/* ================== LOGIN ================== */
+.login {
+    max-width: 400px;
+    margin: 70px auto;
+    background: var(--card);
+    padding: 30px;
+    border-radius: 16px;
+}
+
+.login input,
+.login select,
+.login button {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+/* ================== BUTTONS ================== */
+button {
+    background: var(--main);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* ================== CARDS ================== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 14px;
+    text-align: center;
+}
+
+/* ================== RESPONSIVE (كل الصفحات) ================== */
+@media (max-width: 768px) {
+
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    .login {
+        margin: 50px auto;
+        padding: 22px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .nav {
+        padding: 12px 16px;
+    }
+
+    .nav-title {
+        font-size: 14px;
+    }
+}
